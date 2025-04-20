@@ -1,6 +1,3 @@
-Here's a detailed description of the chatbot code:
-
-# Chatbot Assistant System
 
 ## Overview
 This Python script implements a neural network-based chatbot assistant that can:
