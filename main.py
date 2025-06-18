@@ -10,12 +10,11 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 
-# Make sure to download required nltk resources before running this
 nltk.download('punkt')
 nltk.download('wordnet')
 
 
-# Define the neural network architecture
+#neural network architecture
 class ChatbotModel(nn.Module):
     def __init__(self, input_size, output_size):
         super(ChatbotModel, self).__init__()
@@ -34,7 +33,7 @@ class ChatbotModel(nn.Module):
         return x
 
 
-# Define the assistant class to handle intents, training, and inference
+#the assistant class to handle intents, training, and inference
 class ChatbotAssistant:
     def __init__(self, intents_path, function_mappings=None):
         self.model = None
@@ -152,11 +151,9 @@ class ChatbotAssistant:
 
         predicted_intent = self.intents[predicted_class_index.item()]
 
-        # Run custom function if mapped
         if self.function_mappings and predicted_intent in self.function_mappings:
             self.function_mappings[predicted_intent]()
 
-        # Return a random response from the matched intent
         return random.choice(self.intents_responses.get(predicted_intent, ["من جوابی برای این سوال ندارم."]))
 
 
